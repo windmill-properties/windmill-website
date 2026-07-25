@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windmill Properties — Apartments for Rent in Rhode Island</title>
+<meta name="description" content="Windmill Properties — quality apartments in Providence, Bristol, Pawtucket and Newport, Rhode Island.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="%231b2f5e"><rect x="29.5" y="6" width="5" height="26" rx="2" transform="rotate(45 32 26)"/><rect x="29.5" y="6" width="5" height="26" rx="2" transform="rotate(135 32 26)"/><rect x="29.5" y="20" width="5" height="26" rx="2" transform="rotate(225 32 26)"/><rect x="29.5" y="20" width="5" height="26" rx="2" transform="rotate(315 32 26)"/><path d="M25 58 L28 32 h8 L39 58 Z"/></g></svg>'>
+<style>
+:root{
+  --navy:#1b2f5e; --navy-2:#142344; --navy-3:#0e1930;
+  --red:#b5222d; --gold:#c9a227; --green:#1e7d4f;
+  --cream:#faf7f2; --paper:#ffffff; --ink:#22293a; --mut:#66708a;
+  --line:#e4e1d8; --rad:14px;
+  --shadow:0 10px 30px rgba(20,35,68,.10);
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.55}
+img{display:block;max-width:100%}
+a{color:var(--navy);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:18px;padding:10px 22px;max-width:1280px;margin:0 auto;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+.brand svg{width:44px;height:44px;color:var(--navy)}
+.brand .bt{line-height:1.05}
+.brand .bt b{display:block;font-family:var(--serif);letter-spacing:.22em;font-size:19px;color:var(--navy)}
+.brand .bt span{display:block;font-size:9.5px;letter-spacing:.42em;color:var(--red);font-weight:700;margin-top:3px}
+nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+nav a{padding:9px 13px;border-radius:9px;font-size:14px;font-weight:600;color:var(--navy);white-space:nowrap}
+nav a:hover{background:#eef1f7}
+nav a.on{background:var(--navy);color:#fff}
+nav a.cta{background:var(--red);color:#fff;margin-left:6px}
+nav a.cta:hover{background:#9a1c26}
+
+/* ---------- hero ---------- */
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--navy-3)}
+.hero .tiles{display:grid;grid-template-columns:repeat(4,1fr);position:absolute;inset:0;opacity:.55}
+.hero .tiles div{background-size:cover;background-position:center;filter:saturate(.9)}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,25,48,.55),rgba(14,25,48,.82))}
+.hero .inner{position:relative;text-align:center;padding:92px 22px 84px}
+.hero svg.mark{width:92px;height:92px;color:#fff;margin:0 auto 14px}
+.hero h1{font-family:var(--serif);font-size:clamp(34px,5.4vw,58px);letter-spacing:.14em}
+.hero .sub{letter-spacing:.5em;font-size:12px;color:var(--gold);font-weight:700;margin:10px 0 18px}
+.hero p.tag{max-width:620px;margin:0 auto 30px;font-size:18px;color:#e8ecf5}
+.btn{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:700;font-size:15px}
+.btn.red{background:var(--red);color:#fff}
+.btn.red:hover{background:#9a1c26}
+.btn.ghost{border:2px solid rgba(255,255,255,.75);color:#fff;margin-left:10px}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.btn.navy{background:var(--navy);color:#fff}
+
+/* ---------- stats ---------- */
+.stats{background:var(--navy);color:#fff}
+.stats .row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:26px 22px;max-width:1180px;margin:0 auto;text-align:center}
+.stats b{display:block;font-family:var(--serif);font-size:32px;color:var(--gold)}
+.stats span{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#c9d2e6}
+
+/* ---------- sections ---------- */
+section.pad{padding:64px 0}
+.kick{color:var(--red);font-weight:800;letter-spacing:.3em;font-size:12px;text-transform:uppercase;text-align:center}
+h2.sec{font-family:var(--serif);font-size:clamp(26px,3.4vw,38px);color:var(--navy);text-align:center;margin:8px 0 8px}
+p.lead{max-width:760px;margin:0 auto;text-align:center;color:var(--mut);font-size:17px}
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;margin-top:40px}
+.about .txt p{margin-bottom:14px;font-size:16.5px;color:#3a4258}
+.about .imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about .imgs img{border-radius:var(--rad);box-shadow:var(--shadow);aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* ---------- city cards ---------- */
+.cities{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
+.citycard{position:relative;border-radius:var(--rad);overflow:hidden;cursor:pointer;box-shadow:var(--shadow);aspect-ratio:3/3.6;background:var(--navy)}
+.citycard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.citycard:hover img{transform:scale(1.06)}
+.citycard .ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(14,25,48,.88));display:flex;flex-direction:column;justify-content:flex-end;padding:18px;color:#fff}
+.citycard h3{font-family:var(--serif);font-size:clamp(17px,1.85vw,22px);letter-spacing:.02em;line-height:1.15;white-space:normal;overflow-wrap:normal;text-shadow:0 1px 10px rgba(0,0,0,.55)}
+.citycard span{font-size:13px;color:#d8dfee}
+.citycard .go{margin-top:8px;font-size:13px;font-weight:700;color:var(--gold)}
+
+/* ---------- city page ---------- */
+.cityhero{position:relative;min-height:260px;background:var(--navy-3);color:#fff;display:flex;align-items:flex-end}
+.cityhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.cityhero .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,25,48,.15),rgba(14,25,48,.87))}
+.cityhero .inner{position:relative;padding:120px 22px 30px;max-width:1180px;margin:0 auto;width:100%}
+.cityhero h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,46px)}
+.cityhero p{max-width:700px;color:#dfe5f0;margin-top:6px}
+.crumbs{font-size:13px;margin-bottom:8px;color:#c8d1e4}
+.crumbs a{color:var(--gold);font-weight:700}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.pcard{background:var(--paper);border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;border:1px solid var(--line);transition:transform .25s}
+.pcard:hover{transform:translateY(-4px)}
+.pcard .ph{aspect-ratio:4/2.9;overflow:hidden;background:linear-gradient(135deg,var(--navy),#31518f);position:relative}
+.pcard .ph img{width:100%;height:100%;object-fit:cover}
+.pcard .ph .mill{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.pcard .ph .mill svg{width:64px;height:64px;color:rgba(255,255,255,.65)}
+.pcard .bd{padding:16px 18px 18px}
+.pcard h3{font-family:var(--serif);color:var(--navy);font-size:19px}
+.pcard .meta{font-size:13.5px;color:var(--mut);margin-top:4px}
+.pcard .chips{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:99px;background:#eef1f7;color:var(--navy)}
+.chip.av{background:#e2f3ea;color:var(--green)}
+.chip.cm{background:#f7efd8;color:#8a6d14}
+
+/* ---------- property page ---------- */
+.prophead{background:var(--navy);color:#fff;padding:34px 0 26px}
+.prophead h1{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px)}
+.prophead .meta{color:#c9d2e6;margin-top:4px;font-size:15px}
+.propmain{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;margin-top:28px;align-items:start}
+.bigph{border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow)}
+.bigph img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.pgal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+.pgal img{aspect-ratio:1;object-fit:cover;border-radius:8px;cursor:pointer}
+.units h2{font-family:var(--serif);color:var(--navy);font-size:24px;margin-bottom:12px}
+.unit{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.unit .head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;flex-wrap:wrap}
+.unit .head:hover{background:#fbfaf6}
+.unit .nm{font-weight:800;color:var(--navy);font-size:15.5px;min-width:110px}
+.unit .sp{color:var(--mut);font-size:13.5px}
+.unit .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.unit .rent{font-weight:800;color:var(--navy)}
+.badge{font-size:11px;font-weight:800;letter-spacing:.05em;padding:4px 10px;border-radius:99px;text-transform:uppercase}
+.badge.av{background:var(--green);color:#fff}
+.badge.cm{background:var(--gold);color:#fff}
+.badge.oc{background:#e6e6e2;color:#7a7f8e}
+.unit .caret{color:var(--mut);transition:transform .25s;font-size:12px}
+.unit.open .caret{transform:rotate(90deg)}
+.unit .body{display:none;padding:4px 16px 16px;border-top:1px dashed var(--line)}
+.unit.open .body{display:block}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.ugal{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.ugal img{aspect-ratio:1;object-fit:cover;border-radius:8px;cursor:pointer;transition:opacity .2s}
+.ugal img:hover{opacity:.85}
+.nogal{font-size:13.5px;color:var(--mut);font-style:italic}
+.inq{margin-top:12px}
+.inq a{font-weight:700;color:var(--red)}
+
+/* ---------- available ---------- */
+.avail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.acard{background:var(--paper);border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column}
+.acard .ph{aspect-ratio:4/2.7;overflow:hidden;background:linear-gradient(135deg,var(--navy),#31518f);position:relative;cursor:pointer}
+.acard .ph img{width:100%;height:100%;object-fit:cover}
+.acard .bd{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.acard h3{font-family:var(--serif);color:var(--navy);font-size:18px}
+.acard .meta{color:var(--mut);font-size:13.5px;margin:4px 0 10px}
+.acard .rentrow{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.acard .rent{font-size:20px;font-weight:800;color:var(--navy)}
+.acard .rent small{font-size:12px;color:var(--mut);font-weight:600}
+.empty{background:var(--paper);border:1px dashed var(--line);border-radius:var(--rad);padding:34px;text-align:center;color:var(--mut);margin-top:26px}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.ccard{background:var(--paper);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--shadow);padding:30px;text-align:center}
+.ccard .ic{width:54px;height:54px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px}
+.ccard h3{font-family:var(--serif);color:var(--navy);margin-bottom:6px}
+.ccard a{font-weight:700;color:var(--red);word-break:break-all}
+.ccard p{color:var(--mut);font-size:14px;margin-top:6px}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-3);color:#aab6d0;margin-top:70px}
+footer .top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px;padding:44px 22px;max-width:1180px;margin:0 auto}
+footer .fb{display:flex;align-items:center;gap:10px;color:#fff;margin-bottom:10px}
+footer .fb svg{width:34px;height:34px}
+footer .fb b{font-family:var(--serif);letter-spacing:.2em}
+footer h4{color:#fff;font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+footer a{color:#c8d2e8;display:block;font-size:14px;padding:2px 0}
+footer a:hover{color:var(--gold)}
+footer .eho{border-top:1px solid rgba(255,255,255,.12);padding:16px 22px;text-align:center;font-size:12.5px}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;background:rgba(10,15,28,.94);z-index:100;display:none;align-items:center;justify-content:center}
+#lb.on{display:flex}
+#lb img{max-width:92vw;max-height:88vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#lb .x{position:absolute;top:18px;right:26px;color:#fff;font-size:34px;cursor:pointer;line-height:1}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:44px;cursor:pointer;padding:20px;user-select:none}
+#lb .prev{left:6px}#lb .next{right:6px}
+#lb .cnt{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#c8d2e8;font-size:13px}
+
+@media(max-width:940px){
+  .cities{grid-template-columns:repeat(2,1fr)}
+  .grid3,.avail-grid,.contact-grid{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr}
+  .propmain{grid-template-columns:1fr}
+  footer .top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .grid3,.avail-grid,.contact-grid,.cities{grid-template-columns:1fr}
+  .stats .row{grid-template-columns:repeat(2,1fr);gap:18px}
+  .hero .tiles{grid-template-columns:repeat(2,1fr)}
+  nav a{padding:7px 10px;font-size:13px}
+  .ugal{grid-template-columns:repeat(3,1fr)}
+  .pgal{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="mill" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+      <g>
+        <path d="M32 26 L45.5 12.5"/><path d="M40.2 7.8 L50.2 17.8 M43.4 11 L39 15.4 M47 14.6 L42.6 19"/>
+        <rect x="39" y="6.6" width="12.6" height="12.6" rx="1.5" transform="rotate(45 45.3 12.9)" stroke-width="2.2"/>
+      </g>
+      <g>
+        <path d="M32 26 L18.5 12.5"/>
+        <rect x="12.4" y="6.6" width="12.6" height="12.6" rx="1.5" transform="rotate(-45 18.7 12.9)" stroke-width="2.2"/>
+        <path d="M14 11 L23.4 20.4 M21 7.8 L11.6 17.2" stroke-width="1.6"/>
+      </g>
+      <g>
+        <path d="M32 26 L45.5 39.5"/>
+        <rect x="39" y="33.2" width="12.6" height="12.6" rx="1.5" transform="rotate(45 45.3 39.5)" stroke-width="2.2"/>
+        <path d="M43 34.6 L52.4 44 M50 31.4 L40.6 40.8" stroke-width="1.6" transform="rotate(90 45.3 39.5)"/>
+      </g>
+      <g>
+        <path d="M32 26 L18.5 39.5"/>
+        <rect x="12.4" y="33.2" width="12.6" height="12.6" rx="1.5" transform="rotate(-45 18.7 39.5)" stroke-width="2.2"/>
+        <path d="M14 37.6 L23.4 47 M21 34.4 L11.6 43.8" stroke-width="1.6"/>
+      </g>
+    </g>
+    <circle cx="32" cy="26" r="3.4" fill="currentColor"/>
+    <path d="M26.5 59 L29 33 a3.2 6 0 0 1 6 0 L37.5 59 Z" fill="currentColor"/>
+    <path d="M30.4 59 v-7 a1.8 2.6 0 0 1 3.2 0 v7 Z" fill="#fff" opacity=".85"/>
+    <path d="M8 59.2 H56" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<header>
+  <div class="bar">
+    <div class="brand" onclick="location.hash=''">
+      <svg><use href="#mill"/></svg>
+      <div class="bt"><b>WINDMILL</b><span>PROPERTIES</span></div>
+    </div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="top">
+    <div>
+      <div class="fb"><svg style="color:#fff"><use href="#mill"/></svg><b>WINDMILL PROPERTIES</b></div>
+      <p style="font-size:14px;max-width:320px">Quality apartment homes across Rhode Island — Providence, Bristol, Pawtucket, and Newport.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <div id="footcities"></div>
+      <a href="#/available">Available Units</a>
+      <a href="#/contact">Contact Us</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a id="fmail" href="#">&nbsp;</a>
+      <a id="fphone" href="#">&nbsp;</a>
+      <a id="faddr" style="cursor:default">&nbsp;</a>
+    </div>
+  </div>
+  <div class="eho">© <span id="yr"></span> Windmill Properties · Equal Housing Opportunity</div>
+</footer>
+
+<div id="lb">
+  <span class="x" onclick="lbClose()">&times;</span>
+  <span class="nav prev" onclick="lbStep(-1)">&#8249;</span>
+  <img id="lbimg" alt="">
+  <span class="nav next" onclick="lbStep(1)">&#8250;</span>
+  <span class="cnt" id="lbcnt"></span>
+</div>
+
+<script>
+const SITE = {"data":{"cities":[{"id":"providence","name":"Providence","hero":"assets/city/providence.jpg","blurb":"Rhode Island's creative capital \u2014 our Providence homes sit on the East Side and nearby neighborhoods, minutes from Brown, RISD, Wickenden Street caf\u00e9s, and downtown.","count":12,"units":44},{"id":"bristol","name":"Bristol","hero":"assets/city/bristol.jpg","blurb":"A historic harbor town on Narragansett Bay, home of America\u2019s oldest Fourth of July celebration. Many of our Bristol homes are steps from the waterfront and Colt State Park.","count":15,"units":61},{"id":"pawtucket","name":"Pawtucket","hero":"assets/city/pawtucket.jpg","blurb":"The birthplace of the American Industrial Revolution, minutes from Providence, with charming neighborhoods like Quality Hill and easy commuter access.","count":6,"units":49},{"id":"newport","name":"Newport","hero":"assets/city/newport.jpg","blurb":"The City by the Sea \u2014 gilded mansions, Thames Street, and world-famous sailing, all within reach of our Newport homes.","count":1,"units":1},{"id":"warren","name":"Warren","hero":"assets/city/warren.jpg","blurb":"A charming waterfront town between Providence and Bristol, with one of New England's best small-town Main Streets \u2014 restaurants, galleries, and the East Bay Bike Path at your door.","count":1,"units":12},{"id":"moodus-ct","name":"Moodus, CT","hero":"assets/city/moodus-ct.jpg","blurb":"Our Connecticut outpost in the quiet village of Moodus, East Haddam.","count":1,"units":2}],"properties":[{"key":"124 Wood Street","slug":"124-wood-street","name":"124 Wood Street","city":"Bristol","units":[{"id":"124 Wood Street - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"124 Wood Street - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"124 Wood Street - 3","label":"Unit 3","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"coming","rent":2200,"gallery":[]},{"id":"124 Wood Street - 4","label":"Unit 4","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/124-wood-street.jpg","gallery":[]},{"key":"123 Cottage","slug":"123-cottage-street","name":"123 Cottage Street","city":"Pawtucket","units":[{"id":"123 Cottage - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"123 Cottage - 2","label":"Unit 2","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":["assets/g/123-cottage-street-123-cottage-2/1.jpg","assets/g/123-cottage-street-123-cottage-2/2.jpg","assets/g/123-cottage-street-123-cottage-2/3.jpg","assets/g/123-cottage-street-123-cottage-2/4.jpg","assets/g/123-cottage-street-123-cottage-2/5.jpg","assets/g/123-cottage-street-123-cottage-2/6.jpg","assets/g/123-cottage-street-123-cottage-2/7.jpg","assets/g/123-cottage-street-123-cottage-2/8.jpg","assets/g/123-cottage-street-123-cottage-2/9.jpg","assets/g/123-cottage-street-123-cottage-2/10.jpg","assets/g/123-cottage-street-123-cottage-2/11.jpg","assets/g/123-cottage-street-123-cottage-2/12.jpg","assets/g/123-cottage-street-123-cottage-2/13.jpg","assets/g/123-cottage-street-123-cottage-2/14.jpg"]},{"id":"124 Cottage - 3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"124 Cottage - 4","label":"Unit 4","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"125 Cottage - 5","label":"Unit 5","beds":0,"baths":1,"parking":"Y","laundry":"N","status":"available","rent":1250,"gallery":["assets/g/123-cottage-street-125-cottage-5/1.jpg","assets/g/123-cottage-street-125-cottage-5/2.jpg","assets/g/123-cottage-street-125-cottage-5/3.jpg","assets/g/123-cottage-street-125-cottage-5/4.jpg","assets/g/123-cottage-street-125-cottage-5/5.jpg","assets/g/123-cottage-street-125-cottage-5/6.jpg","assets/g/123-cottage-street-125-cottage-5/7.jpg","assets/g/123-cottage-street-125-cottage-5/8.jpg"]}],"img":"assets/p/123-cottage-street.jpg","gallery":[]},{"key":"139 Bradford Street","slug":"139-bradford-street","name":"139 Bradford Street","city":"Bristol","units":[{"id":"139 Bradford Street - 1","label":"Unit 1","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"139 Bradford Street - 2","label":"Unit 2","beds":3,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"139 Bradford Street - 3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"139 Bradford Street - 4","label":"Unit 4","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/139-bradford-street.jpg","gallery":[]},{"key":"14 Mayflower St","slug":"14-mayflower-street","name":"14 Mayflower Street","city":"Providence","units":[{"id":"14 Mayflower St - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"14 Mayflower St - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"14 Mayflower St - 3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/14-mayflower-street.jpg","gallery":[]},{"key":"15 Evelyn Dr","slug":"15-evelyn-drive","name":"15 Evelyn Drive","city":"Bristol","units":[{"id":"15 Evelyn Dr - 1","label":"Unit 1","beds":5,"baths":3,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":null,"gallery":[]},{"key":"15/17 Rock Street","slug":"15-17-rock-street","name":"15\u201317 Rock Street","city":"Bristol","units":[{"id":"15 Rock Street - 1","label":"15 Rock \u00b7 Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/15-17-rock-street-15-rock-street-1/1.jpg","assets/g/15-17-rock-street-15-rock-street-1/2.jpg","assets/g/15-17-rock-street-15-rock-street-1/3.jpg","assets/g/15-17-rock-street-15-rock-street-1/4.jpg","assets/g/15-17-rock-street-15-rock-street-1/5.jpg","assets/g/15-17-rock-street-15-rock-street-1/6.jpg","assets/g/15-17-rock-street-15-rock-street-1/7.jpg","assets/g/15-17-rock-street-15-rock-street-1/8.jpg","assets/g/15-17-rock-street-15-rock-street-1/9.jpg"]},{"id":"15 Rock Street - 2","label":"15 Rock \u00b7 Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"15 Rock Street - 3","label":"15 Rock \u00b7 Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"17 Rock Street - 1","label":"17 Rock \u00b7 Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"coming","rent":2000,"gallery":[]},{"id":"17 Rock Street - 2","label":"17 Rock \u00b7 Unit 2","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"coming","rent":1900,"gallery":[]}],"img":"assets/p/15-17-rock-street.jpg","gallery":[]},{"key":"20 Tenth St","slug":"20-tenth-street","name":"20 Tenth Street","city":"Providence","units":[{"id":"20 Tenth St - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":["assets/g/20-tenth-street-20-tenth-st-1/1.jpg","assets/g/20-tenth-street-20-tenth-st-1/2.jpg","assets/g/20-tenth-street-20-tenth-st-1/3.jpg","assets/g/20-tenth-street-20-tenth-st-1/4.jpg","assets/g/20-tenth-street-20-tenth-st-1/5.jpg","assets/g/20-tenth-street-20-tenth-st-1/6.jpg","assets/g/20-tenth-street-20-tenth-st-1/7.jpg","assets/g/20-tenth-street-20-tenth-st-1/8.jpg","assets/g/20-tenth-street-20-tenth-st-1/9.jpg","assets/g/20-tenth-street-20-tenth-st-1/10.jpg","assets/g/20-tenth-street-20-tenth-st-1/11.jpg","assets/g/20-tenth-street-20-tenth-st-1/12.jpg","assets/g/20-tenth-street-20-tenth-st-1/13.jpg","assets/g/20-tenth-street-20-tenth-st-1/14.jpg"]},{"id":"20 Tenth St - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"20 Tenth St - 3","label":"Unit 3","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/20-tenth-street.jpg","gallery":[]},{"key":"21 Ambrose Drive","slug":"21-ambrose-drive","name":"21 Ambrose Drive","city":"Bristol","units":[{"id":"21 Ambrose Drive - 1","label":"Unit 1","beds":5,"baths":3,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":null,"gallery":[]},{"key":"213 State","slug":"213-215-state-street","name":"213\u2013215 State Street","city":"Bristol","units":[{"id":"213 State Street - 213A","label":"Unit 213A","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/213-215-state-street-213-state-street-213a/1.jpg","assets/g/213-215-state-street-213-state-street-213a/2.jpg","assets/g/213-215-state-street-213-state-street-213a/3.jpg","assets/g/213-215-state-street-213-state-street-213a/4.jpg","assets/g/213-215-state-street-213-state-street-213a/5.jpg","assets/g/213-215-state-street-213-state-street-213a/6.jpg","assets/g/213-215-state-street-213-state-street-213a/7.jpg","assets/g/213-215-state-street-213-state-street-213a/8.jpg","assets/g/213-215-state-street-213-state-street-213a/9.jpg","assets/g/213-215-state-street-213-state-street-213a/10.jpg","assets/g/213-215-state-street-213-state-street-213a/11.jpg","assets/g/213-215-state-street-213-state-street-213a/12.jpg"]},{"id":"213 State Street - 213B","label":"Unit 213B","beds":0,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"213 State Street - 213C","label":"Unit 213C","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"coming","rent":2200,"gallery":[]},{"id":"213 State Street - 213D","label":"Unit 213D","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"213 State Street - 215A","label":"Unit 215A","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"213 State Street - 215B","label":"Unit 215B","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"coming","rent":1700,"gallery":[]},{"id":"213 State Street - 215C","label":"Unit 215C","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"213 State Street - 215D","label":"Unit 215D","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"coming","rent":2200,"gallery":[]}],"img":"assets/p/213-215-state-street.jpg","gallery":[]},{"key":"22 Mayflower St","slug":"22-mayflower-street","name":"22 Mayflower Street","city":"Providence","units":[{"id":"22 Mayflower St - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":["assets/g/22-mayflower-street-22-mayflower-st-1/1.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/2.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/3.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/4.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/5.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/6.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/7.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/8.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/9.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/10.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/11.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/12.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/13.jpg","assets/g/22-mayflower-street-22-mayflower-st-1/14.jpg"]},{"id":"22 Mayflower St - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"22 Mayflower St - 3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/22-mayflower-street.jpg","gallery":[]},{"key":"23 Auburn","slug":"23-auburn-street","name":"23 Auburn Street","city":"Pawtucket","units":[{"id":"23 Auburn Street - 1F","label":"Unit 1F","beds":1,"baths":1,"parking":"N","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"23 Auburn Street - 1R","label":"Unit 1R","beds":1,"baths":1,"parking":"N","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"23 Auburn Street - 2F","label":"Unit 2F","beds":1,"baths":1,"parking":"N","laundry":"N","status":"coming","rent":1650,"gallery":[]},{"id":"23 Auburn Street - 2R","label":"Unit 2R","beds":1,"baths":1,"parking":"N","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/23-auburn-street.jpg","gallery":[]},{"key":"255 Waterman St","slug":"255-waterman-street","name":"255 Waterman Street","city":"Providence","units":[{"id":"255 Waterman St - 1","label":"Unit 1","beds":4,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":["assets/g/255-waterman-street-255-waterman-st-1/1.jpg","assets/g/255-waterman-street-255-waterman-st-1/2.jpg","assets/g/255-waterman-street-255-waterman-st-1/3.jpg","assets/g/255-waterman-street-255-waterman-st-1/4.jpg","assets/g/255-waterman-street-255-waterman-st-1/5.jpg","assets/g/255-waterman-street-255-waterman-st-1/6.jpg","assets/g/255-waterman-street-255-waterman-st-1/7.jpg","assets/g/255-waterman-street-255-waterman-st-1/8.jpg","assets/g/255-waterman-street-255-waterman-st-1/9.jpg","assets/g/255-waterman-street-255-waterman-st-1/10.jpg","assets/g/255-waterman-street-255-waterman-st-1/11.jpg","assets/g/255-waterman-street-255-waterman-st-1/12.jpg","assets/g/255-waterman-street-255-waterman-st-1/13.jpg","assets/g/255-waterman-street-255-waterman-st-1/14.jpg"]},{"id":"255 Waterman St - 2","label":"Unit 2","beds":4,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"255 Waterman St - 3","label":"Unit 3","beds":4,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"255 Waterman St - 4","label":"Unit 4","beds":3,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/255-waterman-street-255-waterman-st-4/1.jpg","assets/g/255-waterman-street-255-waterman-st-4/2.jpg","assets/g/255-waterman-street-255-waterman-st-4/3.jpg","assets/g/255-waterman-street-255-waterman-st-4/4.jpg","assets/g/255-waterman-street-255-waterman-st-4/5.jpg","assets/g/255-waterman-street-255-waterman-st-4/6.jpg","assets/g/255-waterman-street-255-waterman-st-4/7.jpg","assets/g/255-waterman-street-255-waterman-st-4/8.jpg","assets/g/255-waterman-street-255-waterman-st-4/9.jpg","assets/g/255-waterman-street-255-waterman-st-4/10.jpg","assets/g/255-waterman-street-255-waterman-st-4/11.jpg","assets/g/255-waterman-street-255-waterman-st-4/12.jpg","assets/g/255-waterman-street-255-waterman-st-4/13.jpg","assets/g/255-waterman-street-255-waterman-st-4/14.jpg"]}],"img":"assets/p/255-waterman-street.jpg","gallery":[]},{"key":"299 State St","slug":"299-state-street","name":"299 State Street","city":"Bristol","units":[{"id":"299 State St - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"299 State St - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":["assets/g/299-state-street-299-state-st-2/1.jpg","assets/g/299-state-street-299-state-st-2/2.jpg","assets/g/299-state-street-299-state-st-2/3.jpg","assets/g/299-state-street-299-state-st-2/4.jpg","assets/g/299-state-street-299-state-st-2/5.jpg","assets/g/299-state-street-299-state-st-2/6.jpg","assets/g/299-state-street-299-state-st-2/7.jpg","assets/g/299-state-street-299-state-st-2/8.jpg","assets/g/299-state-street-299-state-st-2/9.jpg","assets/g/299-state-street-299-state-st-2/10.jpg","assets/g/299-state-street-299-state-st-2/11.jpg","assets/g/299-state-street-299-state-st-2/12.jpg","assets/g/299-state-street-299-state-st-2/13.jpg","assets/g/299-state-street-299-state-st-2/14.jpg"]},{"id":"299 State St - 3","label":"Unit 3","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/299-state-street-299-state-st-3/1.jpg","assets/g/299-state-street-299-state-st-3/2.jpg","assets/g/299-state-street-299-state-st-3/3.jpg","assets/g/299-state-street-299-state-st-3/4.jpg","assets/g/299-state-street-299-state-st-3/5.jpg","assets/g/299-state-street-299-state-st-3/6.jpg","assets/g/299-state-street-299-state-st-3/7.jpg","assets/g/299-state-street-299-state-st-3/8.jpg","assets/g/299-state-street-299-state-st-3/9.jpg","assets/g/299-state-street-299-state-st-3/10.jpg","assets/g/299-state-street-299-state-st-3/11.jpg","assets/g/299-state-street-299-state-st-3/12.jpg","assets/g/299-state-street-299-state-st-3/13.jpg","assets/g/299-state-street-299-state-st-3/14.jpg"]}],"img":"assets/p/299-state-street.jpg","gallery":[]},{"key":"30 Prospect Hill","slug":"30-prospect-hill-street","name":"30 Prospect Hill Street","city":"Newport","units":[{"id":"30 Prospect Hill","label":"Whole House","beds":6,"baths":3,"parking":"N","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/30-prospect-hill-street.jpg","gallery":[]},{"key":"32 WFP","slug":"32-wfp","name":"32 WFP","city":"Moodus, CT","units":[{"id":"32 WFP - 1","label":"Unit 1","beds":1,"baths":1,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"32 WFP - 2","label":"Unit 2","beds":1,"baths":1,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]}],"img":null,"gallery":[]},{"key":"308 State","slug":"308-state-street","name":"308 State Street","city":"Bristol","units":[{"id":"308 State Street - 1E","label":"Unit 1E","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"308 State Street - 1W","label":"Unit 1W","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"308 State Street - 2E","label":"Unit 2E","beds":3,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/308-state-street-308-state-street-2e/1.jpg","assets/g/308-state-street-308-state-street-2e/2.jpg","assets/g/308-state-street-308-state-street-2e/3.jpg","assets/g/308-state-street-308-state-street-2e/4.jpg","assets/g/308-state-street-308-state-street-2e/5.jpg","assets/g/308-state-street-308-state-street-2e/6.jpg","assets/g/308-state-street-308-state-street-2e/7.jpg","assets/g/308-state-street-308-state-street-2e/8.jpg","assets/g/308-state-street-308-state-street-2e/9.jpg","assets/g/308-state-street-308-state-street-2e/10.jpg","assets/g/308-state-street-308-state-street-2e/11.jpg","assets/g/308-state-street-308-state-street-2e/12.jpg","assets/g/308-state-street-308-state-street-2e/13.jpg","assets/g/308-state-street-308-state-street-2e/14.jpg"]},{"id":"308 State Street - 2W","label":"Unit 2W","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"308 State Street - G","label":"Unit G","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/308-state-street.jpg","gallery":[]},{"key":"36 East Transit St","slug":"36-east-transit-street","name":"36 East Transit Street","city":"Providence","units":[{"id":"36 East Transit St - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"36 East Transit St - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"36 East Transit St - 3","label":"Unit 3","beds":4,"baths":2,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/36-east-transit-street.jpg","gallery":[]},{"key":"363 Wood Street","slug":"363-wood-street","name":"363 Wood Street","city":"Bristol","units":[{"id":"363 Wood Street - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"363 Wood Street - 2","label":"Unit 2","beds":5,"baths":3,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/363-wood-street.jpg","gallery":[]},{"key":"359 Wood Street","slug":"359-wood-street","name":"359 Wood Street","city":"Bristol","units":[{"id":"363 Wood Street - 1","label":"Unit 1","beds":0,"baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"363 Wood Street - 2","label":"Unit 2","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"363 Wood Street - 3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"363 Wood Street - 4","label":"Unit 4","beds":0,"baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/359-wood-street.jpg","gallery":[]},{"key":"365 Wickenden","slug":"365-wickenden-street","name":"365 Wickenden Street","city":"Providence","units":[{"id":"365 Wickenden -1","label":"Unit 1","beds":2,"baths":1,"parking":"N","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"365 Wickenden -2","label":"Unit 2","beds":2,"baths":1,"parking":"N","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"365 Wickenden -3","label":"Unit 3","beds":1,"baths":1,"parking":"N","laundry":"Y","status":"coming","rent":1900,"gallery":[]}],"img":"assets/p/365-wickenden-street.jpg","gallery":[]},{"key":"392 West Ave","slug":"392-west-avenue","name":"392 West Avenue","city":"Pawtucket","units":[{"id":"392 West Ave - 384 1st","label":"384 West \u00b7 1st Floor","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"392 West Ave - 388 2nd","label":"388 West \u00b7 2nd Floor","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"392 West Ave - 388 3rd","label":"388 West \u00b7 3rd Floor","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"392 West Ave - 390 2nd","label":"390 West \u00b7 2nd Floor","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"392 West Ave - 390 3rd","label":"390 West \u00b7 3rd Floor","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"392 West Ave - 392 1st","label":"392 West \u00b7 1st Floor","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/392-west-avenue.jpg","gallery":[]},{"key":"40 Bourne Street","slug":"40-bourne-street","name":"40 Bourne Street","city":"Bristol","units":[{"id":"40 Bourne Street - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"coming","rent":2200,"gallery":[]},{"id":"40 Bourne Street - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"40 Bourne Street - 3","label":"Unit 3","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"40 Bourne Street - 4","label":"Unit 4","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/40-bourne-street-40-bourne-street-4/1.jpg","assets/g/40-bourne-street-40-bourne-street-4/2.jpg","assets/g/40-bourne-street-40-bourne-street-4/3.jpg","assets/g/40-bourne-street-40-bourne-street-4/4.jpg","assets/g/40-bourne-street-40-bourne-street-4/5.jpg","assets/g/40-bourne-street-40-bourne-street-4/6.jpg","assets/g/40-bourne-street-40-bourne-street-4/7.jpg","assets/g/40-bourne-street-40-bourne-street-4/8.jpg","assets/g/40-bourne-street-40-bourne-street-4/9.jpg"]}],"img":"assets/p/40-bourne-street.jpg","gallery":[]},{"key":"410 Wood Street","slug":"410-wood-street","name":"410 Wood Street","city":"Bristol","units":[{"id":"410 Wood Street - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"410 Wood Street - 2","label":"Unit 2","beds":4,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"410 Wood Street - 3","label":"Unit 3","beds":2,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/410-wood-street.jpg","gallery":["assets/g/410-wood-street/1.jpg","assets/g/410-wood-street/2.jpg","assets/g/410-wood-street/3.jpg","assets/g/410-wood-street/4.jpg","assets/g/410-wood-street/5.jpg","assets/g/410-wood-street/6.jpg","assets/g/410-wood-street/7.jpg","assets/g/410-wood-street/8.jpg","assets/g/410-wood-street/9.jpg","assets/g/410-wood-street/10.jpg"]},{"key":"424 Benefit","slug":"424-426-benefit-street","name":"424\u2013426 Benefit Street","city":"Providence","units":[{"id":"424 1","label":"424 Benefit \u00b7 Unit 1","beds":2,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"424 2","label":"424 Benefit \u00b7 Unit 2","beds":4,"baths":3,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"426 1","label":"426 Benefit \u00b7 Unit 1","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"426 2","label":"426 Benefit \u00b7 Unit 2","beds":3,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/424-426-benefit-street-426-2/1.jpg","assets/g/424-426-benefit-street-426-2/2.jpg","assets/g/424-426-benefit-street-426-2/3.jpg","assets/g/424-426-benefit-street-426-2/4.jpg","assets/g/424-426-benefit-street-426-2/5.jpg","assets/g/424-426-benefit-street-426-2/6.jpg"]},{"id":"basement","label":"Basement Unit","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/424-426-benefit-street.jpg","gallery":[]},{"key":"46 vernon","slug":"46-52-vernon-street","name":"46\u201352 Vernon Street","city":"Providence","units":[{"id":"46 vernon 1","label":"46 Vernon \u00b7 Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"46 vernon 2","label":"46 Vernon \u00b7 Unit 2","beds":4,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"50 vernon 1","label":"50 Vernon \u00b7 Unit 1","beds":2,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"52 vernon 1","label":"52 Vernon \u00b7 Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"52 vernon 2","label":"52 Vernon \u00b7 Unit 2","beds":4,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"48 Vernon","label":"48 Vernon","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/46-52-vernon-street.jpg","gallery":[]},{"key":"50 Armstrong Avenue","slug":"50-armstrong-avenue","name":"50 Armstrong Avenue","city":"Providence","units":[{"id":"50 Armstrong Avenue - 1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"50 Armstrong Avenue - 2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"50 Armstrong Avenue - 3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/50-armstrong-avenue.jpg","gallery":[]},{"key":"60 Washington","slug":"60-washington-street","name":"60 Washington Street","city":"Bristol","units":[{"id":"1","label":"Unit 1","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"2","label":"Unit 2","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"3","label":"Unit 3","beds":3,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":["assets/g/60-washington-street-3/1.jpg","assets/g/60-washington-street-3/2.jpg","assets/g/60-washington-street-3/3.jpg","assets/g/60-washington-street-3/4.jpg","assets/g/60-washington-street-3/5.jpg","assets/g/60-washington-street-3/6.jpg","assets/g/60-washington-street-3/7.jpg","assets/g/60-washington-street-3/8.jpg","assets/g/60-washington-street-3/9.jpg","assets/g/60-washington-street-3/10.jpg","assets/g/60-washington-street-3/11.jpg","assets/g/60-washington-street-3/12.jpg","assets/g/60-washington-street-3/13.jpg","assets/g/60-washington-street-3/14.jpg"]},{"id":"4","label":"Unit 4","beds":3,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"5","label":"Unit 5","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"6","label":"Unit 6","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/60-washington-street.jpg","gallery":[]},{"key":"71 East George Street","slug":"71-east-george-street","name":"71 East George Street","city":"Providence","units":[{"id":"71 East George Street - 1","label":"Unit 1","beds":3,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"71 East George Street - 2","label":"Unit 2","beds":4,"baths":2,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/71-east-george-street-71-east-george-street-2/1.jpg","assets/g/71-east-george-street-71-east-george-street-2/2.jpg","assets/g/71-east-george-street-71-east-george-street-2/3.jpg","assets/g/71-east-george-street-71-east-george-street-2/4.jpg","assets/g/71-east-george-street-71-east-george-street-2/5.jpg","assets/g/71-east-george-street-71-east-george-street-2/6.jpg","assets/g/71-east-george-street-71-east-george-street-2/7.jpg","assets/g/71-east-george-street-71-east-george-street-2/8.jpg","assets/g/71-east-george-street-71-east-george-street-2/9.jpg","assets/g/71-east-george-street-71-east-george-street-2/10.jpg","assets/g/71-east-george-street-71-east-george-street-2/11.jpg","assets/g/71-east-george-street-71-east-george-street-2/12.jpg","assets/g/71-east-george-street-71-east-george-street-2/13.jpg","assets/g/71-east-george-street-71-east-george-street-2/14.jpg"]},{"id":"71 East George Street - 9","label":"Unit 9","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"71 East George Street - garage","label":"Garage","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/71-east-george-street.jpg","gallery":["assets/g/71-east-george-street/1.jpg","assets/g/71-east-george-street/2.jpg","assets/g/71-east-george-street/3.jpg","assets/g/71-east-george-street/4.jpg","assets/g/71-east-george-street/5.jpg","assets/g/71-east-george-street/6.jpg","assets/g/71-east-george-street/7.jpg","assets/g/71-east-george-street/8.jpg","assets/g/71-east-george-street/9.jpg","assets/g/71-east-george-street/10.jpg"]},{"key":"5 goulding","slug":"5-goulding-street","name":"5 Goulding Street","city":"Providence","units":[{"id":"1","label":"Unit 1","beds":2,"baths":1,"parking":"N","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/5-goulding-street-1/1.jpg","assets/g/5-goulding-street-1/2.jpg","assets/g/5-goulding-street-1/3.jpg","assets/g/5-goulding-street-1/4.jpg","assets/g/5-goulding-street-1/5.jpg","assets/g/5-goulding-street-1/6.jpg","assets/g/5-goulding-street-1/7.jpg","assets/g/5-goulding-street-1/8.jpg","assets/g/5-goulding-street-1/9.jpg","assets/g/5-goulding-street-1/10.jpg","assets/g/5-goulding-street-1/11.jpg","assets/g/5-goulding-street-1/12.jpg","assets/g/5-goulding-street-1/13.jpg","assets/g/5-goulding-street-1/14.jpg"]},{"id":"2","label":"Unit 2","beds":4,"baths":2,"parking":"N","laundry":"Y","status":"occupied","rent":null,"gallery":["assets/g/5-goulding-street-2/1.jpg","assets/g/5-goulding-street-2/2.jpg","assets/g/5-goulding-street-2/3.jpg","assets/g/5-goulding-street-2/4.jpg","assets/g/5-goulding-street-2/5.jpg","assets/g/5-goulding-street-2/6.jpg","assets/g/5-goulding-street-2/7.jpg","assets/g/5-goulding-street-2/8.jpg"]}],"img":"assets/p/5-goulding-street.jpg","gallery":[]},{"key":"436 Pawtucket","slug":"436-pawtucket-avenue","name":"436 Pawtucket Avenue","city":"Pawtucket","units":[{"id":"1","label":"Unit 1","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"2","label":"Unit 2","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"4","label":"Unit 4","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"5","label":"Unit 5","beds":3,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/436-pawtucket-avenue.jpg","gallery":[]},{"key":"95 dewolf","slug":"95-dewolf-avenue","name":"95 DeWolf Avenue","city":"Bristol","units":[{"id":"house","label":"Main House","beds":0,"baths":0,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"1","label":"Unit 1","beds":0,"baths":0,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"2","label":"Unit 2","beds":0,"baths":0,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"3","label":"Unit 3","beds":0,"baths":0,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"4","label":"Unit 4","beds":0,"baths":0,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/95-dewolf-avenue.jpg","gallery":[]},{"key":"422 Pawtucket Ave","slug":"422-pawtucket-avenue","name":"422 Pawtucket Avenue","city":"Pawtucket","units":[{"id":"1","label":"Unit 1","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"2","label":"Unit 2","beds":3,"baths":1,"parking":"Y","laundry":"N","status":"available","rent":1875,"gallery":["assets/g/422-pawtucket-avenue-2/1.jpg","assets/g/422-pawtucket-avenue-2/2.jpg","assets/g/422-pawtucket-avenue-2/3.jpg","assets/g/422-pawtucket-avenue-2/4.jpg","assets/g/422-pawtucket-avenue-2/5.jpg","assets/g/422-pawtucket-avenue-2/6.jpg"]},{"id":"3","label":"Unit 3","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"4","label":"Unit 4","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"5","label":"Unit 5","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"6","label":"Unit 6","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"7","label":"Unit 7","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"8","label":"Unit 8","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"9","label":"Unit 9","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"10","label":"Unit 10","beds":2,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"11","label":"Unit 11","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":["assets/g/422-pawtucket-avenue-11/1.jpg","assets/g/422-pawtucket-avenue-11/2.jpg","assets/g/422-pawtucket-avenue-11/3.jpg","assets/g/422-pawtucket-avenue-11/4.jpg","assets/g/422-pawtucket-avenue-11/5.jpg","assets/g/422-pawtucket-avenue-11/6.jpg"]},{"id":"12","label":"Unit 12","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"coming","rent":1500,"gallery":[]},{"id":"13","label":"Unit 13","beds":1,"baths":1,"parking":"Y","laundry":"N","status":"coming","rent":1500,"gallery":[]},{"id":"G1","label":"Garage 1","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"G2","label":"Garage 2","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"G3","label":"Garage 3","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"G4","label":"Garage 4","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"G5","label":"Garage 5","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/422-pawtucket-avenue.jpg","gallery":["assets/g/422-pawtucket-avenue/1.jpg","assets/g/422-pawtucket-avenue/2.jpg","assets/g/422-pawtucket-avenue/3.jpg"]},{"key":"29 Auburn","slug":"29-auburn-street-garages","name":"29 Auburn Street \u2014 Garages","city":"Pawtucket","units":[{"id":"1","label":"Garage 1","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"2","label":"Garage 2","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"3","label":"Garage 3","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"4","label":"Garage 4","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"5","label":"Garage 5","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"6","label":"Garage 6","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"7","label":"Garage 7","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"8","label":"Garage 8","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"9","label":"Garage 9","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"10","label":"Garage 10","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]},{"id":"11","label":"Garage 11","beds":"G","baths":0,"parking":"NA","laundry":"NA","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/29-auburn-street-garages.jpg","gallery":["assets/g/29-auburn-street-garages/1.jpg","assets/g/29-auburn-street-garages/2.jpg"]},{"key":"124 Pitman","slug":"124-pitman-street","name":"124 Pitman Street","city":"Providence","units":[{"id":"1W","label":"Unit 1W","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"1E","label":"Unit 1E","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"2W","label":"Unit 2W","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"2E","label":"Unit 2E","beds":1,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]},{"id":"3","label":"Unit 3","beds":2,"baths":1,"parking":"Y","laundry":"Y","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/124-pitman-street.jpg","gallery":[]},{"key":"174 Wood","slug":"174-wood-street","name":"174 Wood Street","city":"Bristol","units":[{"id":"1R","label":"Unit 1R","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"1F","label":"Unit 1F","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"2R","label":"Unit 2R","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"2F","label":"Unit 2F","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"3R","label":"Unit 3R","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"3F","label":"Unit 3F","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/174-wood-street.jpg","gallery":[]},{"key":"707 Main","slug":"707-main-street","name":"707 Main Street","city":"Warren","units":[{"id":"1","label":"Unit 1","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"2","label":"Unit 2","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"3","label":"Unit 3","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"B","label":"Unit B","beds":1,"baths":"","parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G1","label":"Garage 1","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G2","label":"Garage 2","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G3","label":"Garage 3","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G4","label":"Garage 4","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G5","label":"Garage 5","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G6","label":"Garage 6","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G7","label":"Garage 7","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]},{"id":"G8","label":"Garage 8","beds":"G","baths":0,"parking":"Y","laundry":"N","status":"occupied","rent":null,"gallery":[]}],"img":"assets/p/707-main-street.jpg","gallery":[]}],"contact":{"email":"management@windmill-properties.com","phone":"(401) 379-8294","phone_raw":"4013798294","address":"PO Box 51243, Boston, MA 02205"}},"stats":{"props":36,"units":169,"cities":6,"avail":2,"coming":11}};
+const D = SITE.data, S = SITE.stats;
+const $ = s => document.querySelector(s);
+const app = $('#app');
+const money = v => v ? '$' + Number(v).toLocaleString() : '';
+const bedTxt = b => b==='G' ? 'Garage bay' : (b===0||b==='0') ? 'Studio' : b===''? '' : b+' bed';
+const propBy = slug => D.properties.find(p => p.slug === slug);
+const millPh = `<div class="mill"><svg><use href="#mill"/></svg></div>`;
+
+/* ---------- nav ---------- */
+function buildNav(){
+  let h = `<a href="#/" data-r="home">Home</a>`;
+  D.cities.forEach(c => h += `<a href="#/city/${c.id}" data-r="city/${c.id}">${c.name.replace(', CT','')}</a>`);
+  h += `<a href="#/available" data-r="available">Available Units</a>`;
+  h += `<a class="cta" href="#/contact" data-r="contact">Contact Us</a>`;
+  $('#nav').innerHTML = h;
+  let fc = '';
+  D.cities.forEach(c => fc += `<a href="#/city/${c.id}">${c.name}</a>`);
+  $('#footcities').innerHTML = fc;
+  $('#fmail').textContent = D.contact.email; $('#fmail').href = 'mailto:'+D.contact.email;
+  $('#fphone').textContent = D.contact.phone; $('#fphone').href = 'tel:'+D.contact.phone_raw;
+  $('#faddr').textContent = D.contact.address;
+  $('#yr').textContent = new Date().getFullYear();
+}
+
+/* ---------- views ---------- */
+function vHome(){
+  const tiles = D.cities.filter(c=>c.hero).map(c=>`<div style="background-image:url('${c.hero}')"></div>`).join('');
+  const cityCards = D.cities.map(c => `
+    <div class="citycard" onclick="location.hash='#/city/${c.id}'">
+      ${c.hero ? `<img src="${c.hero}" alt="${c.name}" loading="lazy">` : ''}
+      <div class="ov">
+        <h3>${c.name}</h3>
+        <span>${c.count} propert${c.count>1?'ies':'y'} · ${c.units} units</span>
+        <span class="go">Browse homes →</span>
+      </div>
+    </div>`).join('');
+  const galsample = [];
+  for (const p of D.properties){ if (p.img && ['providence','bristol'].includes(p.city.toLowerCase())) galsample.push(p.img); if (galsample.length>=4) break; }
+  return `
+  <div class="hero">
+    <div class="tiles">${tiles}</div><div class="veil"></div>
+    <div class="inner">
+      <svg class="mark"><use href="#mill"/></svg>
+      <h1>WINDMILL PROPERTIES</h1>
+      <div class="sub">RHODE ISLAND APARTMENT HOMES</div>
+      <p class="tag">Classic New England homes, thoughtfully renovated and proudly managed — in Providence, Bristol, Pawtucket, and Newport.</p>
+      <a class="btn red" href="#/available">See Available Units</a>
+      <a class="btn ghost" href="#/contact">Contact Us</a>
+    </div>
+  </div>
+  <div class="stats"><div class="row">
+    <div><b>${S.props}</b><span>Properties</span></div>
+    <div><b>${S.units}</b><span>Units &amp; Garages</span></div>
+    <div><b>4</b><span>Rhode Island Cities</span></div>
+    <div><b>${S.avail + S.coming}</b><span>Available &amp; Coming Soon</span></div>
+  </div></div>
+  <section class="pad"><div class="wrap">
+    <div class="kick">Our Company</div>
+    <h2 class="sec">Rooted in Rhode Island</h2>
+    <div class="about">
+      <div class="txt">
+        <p>Windmill Properties is a family-owned multifamily real estate company based in Rhode Island. We own and manage a portfolio of classic New England apartment homes — triple-deckers, historic cottages, and harbor-town houses — across Providence, Bristol, Pawtucket, and Newport.</p>
+        <p>We buy character buildings and take care of them: modern kitchens and baths, in-unit laundry where possible, off-street parking, and responsive, hands-on management. Many of our homes sit steps from the water, the East Side, or a village main street.</p>
+        <p>Whether you're a student, a professional, or a family putting down roots in the Ocean State, we'd love to show you home.</p>
+        <p style="margin-top:18px"><a class="btn navy" href="#/available">Browse Availability</a></p>
+      </div>
+      <div class="imgs">${galsample.map(g=>`<img src="${g}" alt="Windmill Properties home" loading="lazy">`).join('')}</div>
+    </div>
+  </div></section>
+  <section class="pad" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
+    <div class="kick">Neighborhoods</div>
+    <h2 class="sec">Find Your City</h2>
+    <p class="lead">From the East Side of Providence to Bristol Harbor — pick a city to explore every building and unit.</p>
+    <div class="cities">${cityCards}</div>
+  </div></section>`;
+}
+
+function vCity(id){
+  const c = D.cities.find(x => x.id === id);
+  if (!c) return vHome();
+  const plist = D.properties.filter(p => p.city === c.name);
+  const cards = plist.map(p => {
+    const av = p.units.filter(u=>u.status==='available').length;
+    const cm = p.units.filter(u=>u.status==='coming').length;
+    const beds = p.units.map(u=>u.beds).filter(b=>b!=='G'&&b!==''&&b!==null);
+    const bmin = Math.min(...beds), bmax = Math.max(...beds);
+    const bt = beds.length ? (bmin===bmax ? bedTxt(bmin) : `${bmin===0?'Studio':bmin+' bed'} – ${bmax} bed`) : 'Garage bays';
+    return `
+    <div class="pcard" onclick="location.hash='#/property/${p.slug}'">
+      <div class="ph">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : millPh}</div>
+      <div class="bd">
+        <h3>${p.name}</h3>
+        <div class="meta">${p.units.length} unit${p.units.length>1?'s':''} · ${bt}</div>
+        <div class="chips">
+          ${av?`<span class="chip av">${av} available now</span>`:''}
+          ${cm?`<span class="chip cm">${cm} coming soon</span>`:''}
+          ${!av&&!cm?`<span class="chip">Fully occupied</span>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  return `
+  <div class="cityhero">
+    ${c.hero?`<img src="${c.hero}" alt="${c.name}">`:''}
+    <div class="ov"></div>
+    <div class="inner">
+      <div class="crumbs"><a href="#/">Home</a> / ${c.name}</div>
+      <h1>${c.name}</h1>
+      <p>${c.blurb}</p>
+    </div>
+  </div>
+  <section class="pad"><div class="wrap">
+    <div class="grid3">${cards}</div>
+  </div></section>`;
+}
+
+function vProperty(slug){
+  const p = propBy(slug);
+  if (!p) return vHome();
+  const cid = D.cities.find(c=>c.name===p.city)?.id || '';
+  const units = p.units.map((u,i) => {
+    const sp = [bedTxt(u.beds), u.baths?u.baths+' bath':null].filter(Boolean).join(' · ');
+    const facts = [];
+    if (u.parking==='Y') facts.push('Off-street parking');
+    if (u.laundry==='Y') facts.push('In-unit laundry');
+    const badge = u.status==='available' ? '<span class="badge av">Available Now</span>'
+                : u.status==='coming' ? '<span class="badge cm">Coming Soon</span>'
+                : '<span class="badge oc">Occupied</span>';
+    const rent = (u.status!=='occupied' && u.rent) ? `<span class="rent">${money(u.rent)}<small style="color:var(--mut);font-weight:600">/mo</small></span>` : '';
+    const gal = u.gallery.length
+      ? `<div class="ugal">${u.gallery.map((g,gi)=>`<img src="${g}" loading="lazy" alt="${p.name} ${u.label}" onclick="lbOpen(GA['${p.slug}|${i}'],${gi})">`).join('')}</div>`
+      : `<div class="nogal">Interior photos coming soon — contact us for a tour.</div>`;
+    const inq = u.status!=='occupied'
+      ? `<div class="inq"><a href="#/contact" target="_blank" rel="noopener">Contact us about this unit →</a></div>` : '';
+    return `
+    <div class="unit" id="u${i}">
+      <div class="head" onclick="this.parentNode.classList.toggle('open')">
+        <span class="caret">▶</span>
+        <span class="nm">${u.label}</span>
+        <span class="sp">${sp}</span>
+        <span class="right">${rent}${badge}</span>
+      </div>
+      <div class="body">
+        ${facts.length?`<div class="facts">${facts.map(f=>`<span class="chip">${f}</span>`).join('')}</div>`:''}
+        ${gal}${inq}
+      </div>
+    </div>`;
+  }).join('');
+  const pg = p.gallery.length
+    ? `<div class="pgal">${p.gallery.map((g,gi)=>`<img src="${g}" loading="lazy" alt="${p.name}" onclick="lbOpen(GA['${p.slug}|P'],${gi})">`).join('')}</div>` : '';
+  return `
+  <div class="prophead"><div class="wrap">
+    <div class="crumbs"><a href="#/">Home</a> / <a href="#/city/${cid}">${p.city}</a> / ${p.name}</div>
+    <h1>${p.name}</h1>
+    <div class="meta">${p.city}${p.city.includes('CT')?'':', Rhode Island'} · ${p.units.length} unit${p.units.length>1?'s':''}</div>
+  </div></div>
+  <section style="padding:34px 0 60px"><div class="wrap">
+    <div class="propmain">
+      <div>
+        <div class="bigph">${p.img?`<img src="${p.img}" alt="${p.name}">`:`<div class="ph" style="aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy),#31518f);position:relative">${millPh}</div>`}</div>
+        ${pg}
+      </div>
+      <div class="units">
+        <h2>Units at ${p.name}</h2>
+        ${units}
+      </div>
+    </div>
+  </div></section>`;
+}
+
+function acard(p, u){
+  const img = u.gallery[0] || p.img;
+  const sp = [bedTxt(u.beds), u.baths?u.baths+' bath':null, p.city].filter(Boolean).join(' · ');
+  return `
+  <div class="acard">
+    <div class="ph" onclick="location.hash='#/property/${p.slug}'">${img?`<img src="${img}" loading="lazy" alt="${p.name} ${u.label}">`:millPh}</div>
+    <div class="bd">
+      <h3>${p.name} · ${u.label}</h3>
+      <div class="meta">${sp}</div>
+      <div class="rentrow">
+        <span class="rent">${money(u.rent)}<small>/mo</small></span>
+        <a class="btn red" style="padding:9px 16px;font-size:13.5px" href="#/contact" target="_blank" rel="noopener">Contact Us</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function vAvailable(){
+  let now = [], soon = [];
+  D.properties.forEach(p => p.units.forEach(u => {
+    if (u.status==='available') now.push(acard(p,u));
+    if (u.status==='coming') soon.push(acard(p,u));
+  }));
+  return `
+  <div class="prophead"><div class="wrap">
+    <div class="crumbs"><a href="#/">Home</a> / Available Units</div>
+    <h1>Available Units</h1>
+    <div class="meta">Updated regularly · call ${D.contact.phone} for same-week showings</div>
+  </div></div>
+  <section class="pad"><div class="wrap">
+    <div class="kick">Move-in Ready</div>
+    <h2 class="sec">Available Now</h2>
+    ${now.length?`<div class="avail-grid">${now.join('')}</div>`:`<div class="empty">Nothing listed at the moment — check the Coming Soon section below or contact us to join the waitlist.</div>`}
+    <div style="height:46px"></div>
+    <div class="kick">Under Renovation</div>
+    <h2 class="sec">Coming Soon</h2>
+    <p class="lead">These homes are being renovated now. Inquire early — renovated units go quickly.</p>
+    ${soon.length?`<div class="avail-grid" style="margin-top:26px">${soon.join('')}</div>`:`<div class="empty">No upcoming units right now.</div>`}
+  </div></section>`;
+}
+
+function vContact(){
+  return `
+  <div class="prophead"><div class="wrap">
+    <div class="crumbs"><a href="#/">Home</a> / Contact</div>
+    <h1>Contact Us</h1>
+    <div class="meta">Tours, applications, and general questions — we're happy to help.</div>
+  </div></div>
+  <section class="pad"><div class="wrap">
+    <div class="contact-grid">
+      <div class="ccard">
+        <div class="ic">✉</div>
+        <h3>Email</h3>
+        <a href="mailto:${D.contact.email}">${D.contact.email}</a>
+        <p>Best for applications, documents, and detailed questions.</p>
+      </div>
+      <div class="ccard">
+        <div class="ic">☎</div>
+        <h3>Phone</h3>
+        <a href="tel:${D.contact.phone_raw}">${D.contact.phone}</a>
+        <p>Call or text to schedule a tour.</p>
+      </div>
+      <div class="ccard">
+        <div class="ic">⌂</div>
+        <h3>Mailing Address</h3>
+        <a style="cursor:default;color:var(--navy)">${D.contact.address}</a>
+        <p>Windmill Properties</p>
+      </div>
+    </div>
+    <div class="empty" style="border-style:solid;margin-top:34px">
+      Looking for a specific home? Browse by city — ${D.cities.map(c=>`<a href="#/city/${c.id}" style="font-weight:700">${c.name}</a>`).join(' · ')} — or see <a href="#/available" style="font-weight:700">what's available</a>.
+    </div>
+  </div></section>`;
+}
+
+/* ---------- galleries for lightbox ---------- */
+const GA = {};
+D.properties.forEach(p => {
+  if (p.gallery.length) GA[p.slug+'|P'] = p.gallery;
+  p.units.forEach((u,i) => { if (u.gallery.length) GA[p.slug+'|'+i] = u.gallery; });
+});
+
+/* ---------- lightbox ---------- */
+let lbList = [], lbIdx = 0;
+function lbOpen(list, idx){ lbList = list; lbIdx = idx; lbShow(); $('#lb').classList.add('on'); document.body.style.overflow='hidden'; }
+function lbShow(){ $('#lbimg').src = lbList[lbIdx]; $('#lbcnt').textContent = (lbIdx+1)+' / '+lbList.length; }
+function lbStep(d){ lbIdx = (lbIdx + d + lbList.length) % lbList.length; lbShow(); }
+function lbClose(){ $('#lb').classList.remove('on'); document.body.style.overflow=''; }
+$('#lb').addEventListener('click', e => { if (e.target.id==='lb') lbClose(); });
+document.addEventListener('keydown', e => {
+  if (!$('#lb').classList.contains('on')) return;
+  if (e.key==='Escape') lbClose();
+  if (e.key==='ArrowLeft') lbStep(-1);
+  if (e.key==='ArrowRight') lbStep(1);
+});
+
+/* ---------- router ---------- */
+function render(){
+  const h = location.hash.replace(/^#\/?/,'');
+  const [r, arg] = h.split('/');
+  let html, route;
+  if (r === 'city' && arg){ html = vCity(arg); route = 'city/'+arg; }
+  else if (r === 'property' && arg){ html = vProperty(arg); route = ''; }
+  else if (r === 'available'){ html = vAvailable(); route = 'available'; }
+  else if (r === 'contact'){ html = vContact(); route = 'contact'; }
+  else { html = vHome(); route = 'home'; }
+  app.innerHTML = html;
+  document.querySelectorAll('nav a').forEach(a => a.classList.toggle('on', a.dataset.r === route));
+  if (r === 'property' && arg){
+    const p = propBy(arg);
+    const cid = D.cities.find(c=>c.name===p?.city)?.id;
+    if (cid) document.querySelector(`nav a[data-r="city/${cid}"]`)?.classList.add('on');
+  }
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', render);
+buildNav();
+render();
+</script>
+</body>
+</html>
